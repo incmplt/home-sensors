@@ -5,6 +5,7 @@
 ## Description
 
 本ソースコードのハードウェア準備については、以下のWEBページを参照。
+
 Reference: [RaspberryPi Sensors : incmplt Site](https://www.incmplt.net/2021/06/27/raspberrypi-sensors/)
 
 ## Requirement
@@ -96,6 +97,11 @@ make install
 ```
 
 ## Optional
+
+現在の開発コードには、以下の機能を追加している。
+
+* サーバーの MySQL データベースに記録
+* 温度と暑さ指数が閾値を越えたら Google Home で音声で警告
 
 ## Licence
 
