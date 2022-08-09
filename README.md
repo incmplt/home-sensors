@@ -4,6 +4,7 @@
 
 ## Description
 
+本ソースコードのハードウェア準備については、以下のWEBページを参照。
 Reference: [RaspberryPi Sensors : incmplt Site](https://www.incmplt.net/2021/06/27/raspberrypi-sensors/)
 
 ## Requirement
@@ -11,7 +12,7 @@ Reference: [RaspberryPi Sensors : incmplt Site](https://www.incmplt.net/2021/06/
 本環境は、以下のハードウェアで構成している。
 
 * RaspberryPi 3B or 4
-* BME230
+* BME280
 * MH-Z19
 * python3
 * Network Connection
@@ -19,8 +20,11 @@ Reference: [RaspberryPi Sensors : incmplt Site](https://www.incmplt.net/2021/06/
 
 ![Home Sensors](/doc/RaspberryPi-HomeSensors.png)
 
-RaspberryPi ZARO (WH)では、MH-Z19 の Co2 取得が上手くいかない場合があった。
+RaspberryPi ZARO(WH) では、MH-Z19 の Co2 取得が上手くいかない場合があった。
 推奨は、RaspberryPi 3 もしくは 4 とする。
+
+また、ネットワークの通信は wlan0 を想定してスクリプトを作成している。
+サーバーの通知機能を wlan0 以外で使用する場合には、スクリプトの値を変更する必要がある。
 
 ## Usage
 
