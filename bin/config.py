@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # Home Sensors Configuration
+SENSOR_LOG="/tmp/sensors.log"
+
 # SENSOR_POS
 # 0 : indoor sensor
 # 1 : outdoors sensor
@@ -11,13 +13,21 @@ SENSOR_POS=0
 #  1 : Enable Co2/MH-Z19 Sensor
 ENABLE_CO2=1
 
+# Optional : Azure Iot Relation
+ENABLE_AZURE=0
+
 # Optional :  SensorDB Configuration
+ENABLE_DB=1
+# SENSOR_PROTOCOL : HTTP or HTTPS
+SENSOR_PROTOCOL="HTTP"
+# SENSOR_SERVER : IP address or FQDN
 SENSOR_SERVER="192.168.1.140"
-SENSOR_ENDPOINT="/api/v1/postSensor.php"
-SENSOR_LOG="/tmp/sensors.log"
+# SENSOR_ENDPOINT : API path
+#SENSOR_ENDPOINT="/api/v1/post"
+SENSOR_ENDPOINT="/api/postSensor.php"
 
 # Optional : Google Home
-HOMENAME="GoogleHome"
+HOMENAME="GoogleHomeOffice"
 
 WBGT_WRN=28.0
 WBGT_CLT=31.0
