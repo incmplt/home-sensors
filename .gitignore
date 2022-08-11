@@ -1,3 +1,4 @@
 *.bak
 private/
 bin/__pycache__/
+doc/sensordb-overview.pptx
