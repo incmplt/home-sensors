@@ -1,5 +1,6 @@
 # Makefile : Home Sensors on RaspberryPi
 PREFIX=/opt/iot/
+HTDOC=/var/www/html/
 
 prepare:
 	apt install python3
@@ -13,3 +14,9 @@ install:
 	chmod 0755 ${PREFIX}/bin/*.py
 	chmod 0755 ${PREFIX}/bin/*.sh
 
+sensordb:
+	-cp -a ./www/html/* ${HTDOC}
+	-mkdir -p ${PREFIX}/sbin
+	-cp -a ./sbin/* ${PREFIX}/sbin/
+	chmod 0755 ${PREFIX}/sbin/*.pl
+	
