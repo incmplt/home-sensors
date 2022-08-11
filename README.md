@@ -96,7 +96,13 @@ bme280
 make install
 ```
 
-## Optional
+## SensorDB 複数のセンサーの記録
+
+現在のコードには、複数の センサーからデータを収集して保存するコードも含まれている。
+
+![SensorDB Overview](/doc/sensordb-overview.png)
+
+## Future plans
 
 現在の開発コードには、以下の機能を追加している。
 
