@@ -1,2 +1,3 @@
 *.bak
 private/
+bin/__pycache__/
