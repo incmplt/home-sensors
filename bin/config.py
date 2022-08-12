@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Home Sensors Configuration
-SENSOR_LOG="/tmp/sensors.log"
+SENSOR_LOG="/tmp/sensor.log"
 
 # SENSOR_POS
 # 0 : indoor sensor
