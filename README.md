@@ -109,6 +109,8 @@ make install
 
 ![SensorDB Overview](/doc/sensordb-overview.png)
 
+SensorDB 環境の構築は、 doc/sensordb.md を参照。
+
 ## Future plans
 
 現在の開発コードには、以下の機能を追加している。
