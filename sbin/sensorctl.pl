@@ -5,19 +5,22 @@ use DBI;
 
 my $dbhost='localhost';
 my $dbport=3306;
+
 my $dbname="sensordb";
 my $dbuser="sensoradmin";
 my $dbpass="sensor2289";
 my $dsn = "DBI:mysql:database=$dbname;host=$dbhost;port=$dbport";
 
-our( $opt_a, $opt_d, $opt_n, $opt_m );
-getopts('adm:n:');
+our( $opt_a, $opt_d, $opt_l, $opt_n, $opt_m );
+getopts('adlm:n:');
 
 my $ctl=0;
 if( defined $opt_a ){
   $ctl=1;
 }elsif( defined $opt_d ){
   $ctl=2;
+}elsif( defined $opt_l ){
+  $ctl=3;
 }else{
   usage();
   print "Operation type not found.\n";
@@ -48,25 +51,29 @@ my $macaddr = lc $opt_m;
 
 print "MAC Address : ". $macaddr ."\n";
 
-#$dbh = DBI->connect($dsn, $user, $password);
-#if( $ctl==1){
-#  # Add node.
-#  $sth = $dbh->prepare("insert into table01(user_id, nickname, ago) values(?, ?, ?)" );
-#  $sth->execute('P004', 'sample4', 50);
-#  $sth->finish();
-#}elsif( $ctl==2 ){
-#  # Delete node.
-#  $sth = $dbh->prepare("insert into table01(user_id, nickname, ago) values(?, ?, ?)" );
-#  $sth->execute('P004', 'sample4', 50);
-#  $sth->finish();
-#}
-#$dbh->disconnect();
+my $dbh = DBI->connect($dsn, $dbuser, $dbpass );
+if( $ctl==1){
+  # Add node.
+  my $sth = $dbh->prepare("Insert into Node(nid,uid,nodename,macaddr,effectivedate,idstatus) values ('0', '1', ?, ?, now(), '1')" );
+  $sth->execute( $node, $macaddr );
+  $sth->finish();
+}elsif( $ctl==2 ){
+  # Delete node.
+  my $sth = $dbh->prepare("Delete from Node Where macaddr=? and nid != 0");
+  $sth->execute( $macaddr );
+  $sth->finish();
+}elsif( $ctl==3 ){
+  # List node
+
+}
+$dbh->disconnect();
 
 exit;
 
 sub usage{
   print "$0 (-a | -d ) -m [macaddr]\n";
-  print "    -a           : Add sensor node mac address(wlan0)\n";
-  print "    -d           : Delete sensor node mac address(wlan0)\n";
-  print "    -m [macaddr] : Connect MAC Address(IPv4) with ':'\n\n";
+  print "    -a            : Add sensor node mac address(wlan0)\n";
+  print "    -d            : Delete sensor node mac address(wlan0)\n";
+  print "    -n [nodename] : Node name ( -a )\n\n";
+  print "    -m [macaddr]  : Connect MAC Address(IPv4) with ':'\n\n";
 }
