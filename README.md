@@ -109,7 +109,7 @@ make install
 
 ![SensorDB Overview](/doc/sensordb-overview.png)
 
-SensorDB 環境の構築は、 doc/sensordb.md を参照。
+SensorDB 環境の構築と使用方法は、 [sensordb.md](/doc/sensordb.md) を参照。
 
 ## Future plans
 

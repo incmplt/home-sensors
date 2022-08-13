@@ -70,10 +70,24 @@ mysql -u root -p < ./sql/sensordb.sql
 mysql -u root -p < ./sql/master.sql
 ```
 
+### Sensor Node Control
+
+センサーを登録/削除する sensorctl.pl は、Config::Tiny,  DBI, DBD-MySQL などのモジュールを使用する。
+
+```bash
+apt install libconfig-tiny-perl
+```
+
 postSensor.py を実行する前に Node テーブルに、データを送信する RaspberryPi を登録する。
 
 ```bash
-sbin/nodectl -a -n 'nodename' -m 'macaddress'
+sbin/sensorctl -a -n 'nodename' -m 'macaddress'
+```
+
+登録してある RaspberryPi を削除するには、以下のコマンドを実行する。
+
+```bash
+sbin/sensorctl -d -m 'macaddress'
 ```
 
 ## Licence
