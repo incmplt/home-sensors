@@ -1,4 +1,4 @@
-# Home sensor on RaspberryPi 3/4
+# Home sensor on RaspberryPi 3/4 and Zero WH
 
 このプロジェクトは、RaspberryPi に簡易的なセンサーを追加して自宅のコンディションを監視する目的で作成したコード群である。
 
